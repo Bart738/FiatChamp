@@ -326,6 +326,11 @@ IEnumerable<HaEntity> CreateInteractiveEntities(IFiatClient fiatClient, SimpleMq
       forceLoopResetEvent.Set();
   });
 
+  var engineSwitch = new HaSwitch(mqttClient, "EngineStart", haDevice, async sw =>
+  {
+    if (await TrySendCommand(fiatClient, sw.IsOn ? FiatCommand.REON : FiatCommand.REOFF, vehicle.Vin))
+      forceLoopResetEvent.Set();
+  });
   return new HaEntity[]
   {
     hvacSwitch,
