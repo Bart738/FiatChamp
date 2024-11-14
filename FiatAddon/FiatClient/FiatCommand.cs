@@ -10,7 +10,9 @@ public class FiatCommand
   public static readonly FiatCommand ROTRUNKLOCK = new() { Message = "ROTRUNKLOCK" };
   public static readonly FiatCommand RDU = new() { Message = "RDU", IsDangerous = true };
   public static readonly FiatCommand RDL = new() { Message = "RDL", IsDangerous = true };
-
+  public static readonly FiatCommand REON = new() { Message = "REON", IsDangerous = true };
+  public static readonly FiatCommand REOFF = new() { Message = "REOFF", IsDangerous = true };
+  
   public bool IsDangerous { get; set; }
   public required string Message { get; init; }
   public string Action { get; init; } = "remote";
