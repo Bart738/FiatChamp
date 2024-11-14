@@ -41,4 +41,3 @@ jobs:
         args: |
           --${{ matrix.arch }} \
           --target FiatAddon
-          --release-tag 1.4
